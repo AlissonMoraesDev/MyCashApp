@@ -1,7 +1,161 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
 
-body {
+* {
   margin: 0px;
   padding: 0px;
   font-family: 'Dosis', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1rem;
+  color: #7C7C7C;
+  font-weight: 600;
+}
+
+p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #7C7C7C;
+}
+
+label {
+  width: 100%;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+button {
+  background-color: #428AF8;
+  height: 56px;
+  width: 432px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+button.small {
+  background-color: #F4F4F9;
+  color: #428AF8;
+  width: 90px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid #428AF8;
+}
+
+input {
+  outline: none;
+  padding: 0.875rem 0.675rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-color: #DDD;
+  font-size: 1rem;
+  width: 100%;
+  color: #010400;
+  box-sizing: border-box;
+  transition: 0.3s all ease-in-out;
+}
+
+input::placeholder {
+  color: #010400;
+}
+
+input:focus {
+  border-color: #428AF8;
+  background-color: #F4F4F9;
+}
+
+.auth-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #428AF8;
+}
+
+.auth-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 480px;
+  height: auto;
+  border-radius: 12px;
+  background-color: #F4F4F9;
+  min-height: 440px;
+}
+
+.auth-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.title-login, .sub-title-login {
+  margin-top: 32px;
+  width: 100%;
+  text-align: left;
+}
+
+.sub-title-login {
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.label-login {
+  margin-top: 16px;
+}
+
+.input-login {
+  margin-top: 4px;
+}
+
+.btn-login {
+  margin-top: 32px;
+  transition: 0.3s all ease-in-out;
+  background-color:#489FF6;
+}
+
+.btn-login:hover {
+  background-color:#428AF8;
+}
+
+.link-login {
+  margin-top: 4px;
+  width: 100%;
+  text-align: left;
+  color: #7C7C7C;
 }
