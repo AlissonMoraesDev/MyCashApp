@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyCash App - Login</title>
-  <link rel="icon" type="image/x-icon" href="./src/img/favicon.ico">
-  <link rel="stylesheet" href="./styles.css">
+  <title>MyCash App - Cadastro</title>
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+  <link rel="stylesheet" href="../../../styles.css">
 </head>
 <body>
   <section class="container">
     <div class="auth-container-l">
       <div class="auth-content-l">
         <div class="auth-content-container-l">
-          <img class="img-login-l" src="./src/img/Logo.svg" alt="MyCash logo" />
+          <img class="img-login-l" src="../../../src/img/Logo.svg" alt="MyCash logo" />
           <h2 class="title-login">Sua plataforma <br> de <strong>controle financeiro</strong>.</h2>
           <h2>Saiba exatamente a origem <br>e o destino do seu dinheiro<br> de <strong>forma simples</strong></h2>
         </div>
@@ -23,31 +23,37 @@
     <div class="auth-container-r">
       <div class="auth-content">
         <div class="auth-content-container">
-          <img class="img-login-responsive" src="./src/img/Logo.svg" alt="MyCash logo" />
-          <h3 class="title-login">Olá, seja bem-vindo! 👋🏻</h3>
-          <p class="sub-title-login">Insira as informações que você cadastrou durante o registro</p>
-          
-          <form>
+          <img class="img-login-responsive" src="../../../src/img/Logo.svg" alt="MyCash logo" />
+          <h3 class="title-login">Novo Cadastro 🙋🏻‍♂️</h3>
+          <p class="sub-title-login">Informe seus dados para ter acesso a plataforma</p>
+
+          <form id="form-register">
             <label 
-              class="label-login" 
-              for="input-name">Nome</label>
+              for="input-name" 
+              class="input-login">
+              Nome
+            </label>
             <input 
+              type="text" 
               class="input-login" 
               id="input-name" 
-              type="text" 
               placeholder="Digite o seu nome" />
             <label 
               class="label-login" 
-              for="input-email">E-mail</label>
+              for="input-email">
+              E-mail
+            </label>
             <input 
+              type="email" 
               class="input-login" 
               id="input-email" 
-              type="email" 
-              placeholder="fulanodebeltrano@email.com" />
-            <button type="submit" onclick="onClickLogin()" class="btn-login">Entrar</button>
+              placeholder="fulanodebeltrano@email.com" 
+            />
+            <button type="submit" class="btn-login">Entrar</button>
           </form>
           
-          <a href="src/pages/register/index.html" class="link-login">Não possui conta? Faça o seu cadastro aqui</a>
+          <a href="../../../index.html" class="link-login">Possui conta? Faça o login aqui</a>
+
         </div>
       </div>
     </div>
@@ -56,6 +62,6 @@
     <!--<div>
       
     </div> -->
-  <script src="main.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

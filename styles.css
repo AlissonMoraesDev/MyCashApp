@@ -86,11 +86,15 @@ input {
 }
 
 input::placeholder {
-  color: #010400;
+  color: #999;
 }
 
 input:focus {
   border-color: #428AF8;
+}
+
+.img-login-responsive {
+  display: none;
 }
 
 .container {
@@ -187,9 +191,14 @@ input:focus {
   text-align: left;
 }
 
+.title-login {
+  font-size: 1.5rem;
+}
+
 .sub-title-login {
+  font-size: 1.2rem;
   margin-top: 4px;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 .label-login {
@@ -198,6 +207,7 @@ input:focus {
 
 .input-login {
   margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 .btn-login {
@@ -212,8 +222,36 @@ input:focus {
 }
 
 .link-login {
+  font-size: 1.2rem;
   margin-top: 12px;
   width: 100%;
   text-align: left;
   color: #7C7C7C;
+}
+
+form {
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 1200px) {
+  
+  .container {
+    flex-direction: column;
+    background-color: #F4F4F9;
+    width: 1199px;
+    max-width: 100%;
+  }
+  .auth-container-l {
+    display: none;
+  }
+  .img-login-responsive {
+    display: flex;
+    width: 320px;
+    height: 80px;
+    object-fit: contain;
+    margin-left: 2rem;
+  }
+  .title-login {
+    margin-top: 4rem;
+  }
 }
