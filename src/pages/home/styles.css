@@ -146,3 +146,8 @@ a {
   td.right {
     text-align: right;
   }
+
+  tr {
+    height: 2rem;
+    font-weight: 500;
+  }

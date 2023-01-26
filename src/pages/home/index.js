@@ -1,3 +1,45 @@
+const renderFinancesList = async (data) => {
+  const financesTable = document.getElementById('finances-table');
+  data.map((item) => {
+    const tableRow = document.createElement("tr");
+    tableRow.className = "line";
+    
+    // Description table
+    const descriptionTd = document.createElement("td")
+    const descriptionText = document.createTextNode(item.title);
+    descriptionTd.appendChild(descriptionText);
+    tableRow.appendChild(descriptionTd);
+    
+    // Category table
+    const categoryTd = document.createElement("td")
+    const categoryText = document.createTextNode(item.name);
+    categoryTd.appendChild(categoryText);
+    tableRow.appendChild(categoryTd);
+    
+    // Date table
+    const dateTd = document.createElement("td")
+    const dateText = document.createTextNode(new Date(item.date).toLocaleDateString('dd'));
+    dateTd.appendChild(dateText);
+    tableRow.appendChild(dateTd);
+
+    // Value table
+    const valueTd = document.createElement("td")
+    valueTd.className = "center";
+    const valueText = document.createTextNode(new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(item.value));
+    valueTd.appendChild(valueText);
+    tableRow.appendChild(valueTd);
+
+     // Category table
+     const deleteTd = document.createElement("td")
+     deleteTd.className = "right";
+     const deleteText = document.createTextNode("Deletar");
+     deleteTd.appendChild(deleteText);
+     tableRow.appendChild(deleteTd);
+
+     financesTable.appendChild(tableRow);
+  });
+}
+
 const renderFinanceElements = (data) => {
   const totalItems = data.length;
   const revenues = data
@@ -52,6 +94,7 @@ const onLoadFinancesData = async () => {
     );
     const data = await result.json();
     renderFinanceElements(data);
+    renderFinancesList(data);
     return data;
   } catch (error) {
     return { error }
