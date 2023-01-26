@@ -48,6 +48,8 @@ const onRegister = async () => {
     return;
   }
 
+  alert("Cadastro efetuado com sucesso!");
+
   localStorage.setItem("@MyCashApp:userEmail", response.email);
   localStorage.setItem("@MyCashApp:userName", response.name);
   localStorage.setItem("@MyCashApp:userId", response.id);
