@@ -19,12 +19,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
   padding: 24px 112px;
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 
 .logo-dashboard {
@@ -49,3 +46,28 @@ a {
   border-radius: 50%;
   background-color: #489FF6;
 }
+
+.finance-card-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 112px;
+  box-sizing: border-box;
+}
+
+.finance-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 140px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+  .ui-balance {
+    color: #428AF8;
+  }
