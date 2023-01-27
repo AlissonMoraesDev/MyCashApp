@@ -42,7 +42,7 @@
       <div class="table-content">
         <div class="table-header">
           <h2>Detalhe dos lançamentos</h2>
-          <button class="add">Adicionar</button>
+          <button onclick="onOpenModal()" class="add">Adicionar</button>
         </div>
         <table id="finances-table">
           <tr>
@@ -54,6 +54,65 @@
           </tr>
         </table>
       </div>
+    </div>
+  </div>
+  <div id="modal-lancamento" class="modal-background">
+    <div class="modal-content">
+      <div class="modal-content-header">
+        <h3>Adicionar lançamento</h3>
+        <button onclick="onCloseModal()" class="add">Fechar</button>
+      </div>
+      <form id="form-register">
+        <label 
+          for="input-title" 
+          class="input-login">
+          Título
+        </label>
+        <input 
+          type="text" 
+          class="input-login" 
+          id="input-title"
+          name="input-title" 
+          placeholder="Descrição do lançamento" />
+        <label 
+          class="label-login" 
+          for="input-value">
+          Valor
+        </label>
+        <input 
+          type="text" 
+          class="input-login" 
+          id="input-value" 
+          name="input-value" 
+          placeholder="R$ 1,00 (Informe valores negativos para despesa)" 
+        />
+        <label 
+          class="label-login" 
+          for="input-date">
+          Data
+        </label>
+        <input 
+          type="date" 
+          class="input-login" 
+          id="input-date" 
+          name="input-date"
+          placeholder="01/01/2000" 
+        />
+        <label 
+          class="label-login" 
+          for="input-category">
+          Categoria
+        </label>
+        <select 
+          type="text" 
+          class="input-select" 
+          id="input-category" 
+          name="input-category"
+          required
+        >
+        </select>
+        <button type="submit" class="btn-login">Salvar</button>
+      </form>
     </div>
   </div>
 

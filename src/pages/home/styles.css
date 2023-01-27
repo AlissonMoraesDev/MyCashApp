@@ -87,6 +87,7 @@ a {
     display: flex;
     width: 100%;
     height: 592px;
+    overflow-y: auto;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -116,6 +117,14 @@ a {
     font-size: 1rem;
     border-radius: 8px;
     border: 2px #428AF8 solid;
+    transition: all 0.3s ease-in-out;
+  }
+
+  button.add:hover {
+    color: #fff;
+    background-color: #428AF8 ;
+    border: 2px transparent solid;
+    transform: translateY(3px);
   }
 
   table {
@@ -151,3 +160,42 @@ a {
     height: 2rem;
     font-weight: 500;
   }
+
+  .modal-background {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(1, 4, 0, 0.2);
+    animation:fadein .5s;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity:0;
+    }
+    to {
+      opacity:1;
+    }
+  }
+  
+.modal-content {
+  height: 100%;
+  width: 480px;
+  background-color: #f4f4f9;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.modal-content-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}

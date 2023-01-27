@@ -129,7 +129,38 @@ const onLoadUserInfo = () => {
 
 }
 
+const onLoadCategories = async () => {
+  try {
+    const selectCategorias = document.getElementById('input-category');
+    const response = await fetch('https://mp-wallet-app-api.herokuapp.com/categories');
+    const resultCategories = await response.json();
+    resultCategories.map((category) => {
+      const option = document.createElement("option");
+      const optionText = document.createTextNode(category.name);
+      option.id = `category_${category.id}`;
+      option.value = category.id;
+      option.appendChild(optionText);
+      selectCategorias.appendChild(option);
+    })
+  } catch (error){
+    console.log('Erro ao carregar as categorias');
+  }
+}
+
+const onOpenModal = () => {
+  const modalLancamento = document.getElementById('modal-lancamento');
+  modalLancamento.style.display = "flex";
+
+}
+
+const onCloseModal = () => {
+  const modalLancamento = document.getElementById('modal-lancamento');
+  modalLancamento.style.display = "none";
+}
+
+
 window.onload = () => {
+  onLoadCategories();
   onLoadUserInfo();
   onLoadFinancesData();
 }

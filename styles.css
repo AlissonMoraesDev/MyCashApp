@@ -93,6 +93,28 @@ input:focus {
   border-color: #428AF8;
 }
 
+select {
+  outline: none;
+  padding: 0.875rem 0.675rem;
+  margin-top: 16px;
+  border-radius: 8px;
+  border: 2px solid #E0E0E0;
+  background-color: #FFF;
+  font-size: 1rem;
+  width: 100%;
+  color: #010400;
+  box-sizing: border-box;
+  transition: 0.3s all ease-in-out;
+}
+
+select::placeholder {
+  color: #999;
+}
+
+select:focus {
+  border-color: #428AF8;
+}
+
 .img-login-responsive {
   display: none;
 }
