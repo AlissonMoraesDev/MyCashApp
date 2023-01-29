@@ -25,16 +25,12 @@
     </div>
     <div class="finance-card-container">
       <div id="finance-releases" class="finance-card">
-        <h3>Lançamentos</h3>
       </div>
       <div id="finance-revenues" class="finance-card">
-        <h3>Receitas</h3>
       </div>
       <div id="finance-expenses" class="finance-card">
-        <h3>Despesas</h3>
       </div>
       <div id="finance-balance" class="finance-card">
-        <h3>Balanço</h3>
       </div>
     </div>
     
@@ -45,13 +41,6 @@
           <button onclick="onOpenModal()" class="add">Adicionar</button>
         </div>
         <table id="finances-table">
-          <tr>
-            <th>Descrição</th>
-            <th>Categoria</th>
-            <th>Data</th>
-            <th class="center">Valor</th>
-            <th class="right">Ação</th>
-          </tr>
         </table>
       </div>
     </div>
@@ -62,7 +51,7 @@
         <h3>Adicionar lançamento</h3>
         <button onclick="onCloseModal()" class="add">Fechar</button>
       </div>
-      <form id="form-register">
+      <form id="form-finance-release">
         <label 
           for="input-title" 
           class="input-login">
@@ -80,7 +69,8 @@
           Valor
         </label>
         <input 
-          type="text" 
+          type="number"
+          step="any" 
           class="input-login" 
           id="input-value" 
           name="input-value" 
