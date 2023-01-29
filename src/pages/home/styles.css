@@ -30,6 +30,21 @@ a {
   width: auto;
 }
 
+.navbar-calendar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+}
+
+.input-calendar {
+  width: 156px;
+  height: 42px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .user-container {
   display: flex;
   align-items: center;

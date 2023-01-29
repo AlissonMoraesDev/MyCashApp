@@ -1,3 +1,24 @@
+const onLogout = () => {
+  localStorage.clear();
+  window.open('../../../index.html', "_self");
+}
+
+const onDeleteItem = async (id) => {
+  try {
+    const email = localStorage.getItem("@MyCashApp:userEmail");
+    await fetch(`https://mp-wallet-app-api.herokuapp.com/finances/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          email: email,
+        },
+      });
+      onLoadFinancesData();
+  } catch (error) {
+    alert('Erro ao deletar lançamento');
+  }
+}
+
 const renderFinancesList = async (data) => {
   const financesTable = document.getElementById('finances-table');
   financesTable.innerHTML = "";
@@ -64,6 +85,8 @@ const renderFinancesList = async (data) => {
 
      // Category table
      const deleteTd = document.createElement("td")
+     deleteTd.style.cursor = "pointer";
+     deleteTd.onclick = () => onDeleteItem(item.id);
      deleteTd.className = "right";
      const deleteText = document.createTextNode("Deletar");
      deleteTd.appendChild(deleteText);
@@ -147,7 +170,8 @@ const renderFinanceElements = (data) => {
 
 const onLoadFinancesData = async () => {
   try {
-    const date = "2022-12-15";
+    const dateInputValue = document.getElementById("select-date").value;
+    const date = dateInputValue;
     const email = localStorage.getItem("@MyCashApp:userEmail");
     const result = await fetch(`https://mp-wallet-app-api.herokuapp.com/finances?date=${date}`,
       {
@@ -181,6 +205,7 @@ const onLoadUserInfo = () => {
 
   // add button logout
   const logoutElement = document.createElement("a");
+  logoutElement.onclick = onLogout();
   const logoutText = document.createTextNode("Sair");
   logoutElement.appendChild(logoutText);
   navbarUserInfo.appendChild(logoutElement);
@@ -274,12 +299,22 @@ const onCreateFinanceRelease = async (target) => {
   }
 }
 
+const setInitialDate = () => {
+  const dateInput = document.getElementById("select-date");
+  const nowDate = new Date().toISOString().split("T")[0];
+  dateInput.value = nowDate;
+  dateInput.addEventListener('change', () => {
+    onLoadFinancesData();
+  });
+};
+
 
 window.onload = () => {
+  setInitialDate();
+  onLoadFinancesData();
   onLoadCategories();
   onLoadUserInfo();
-  onLoadFinancesData();
-
+  
   const form = document.getElementById('form-finance-release');
   form.onsubmit = (event) => {
     event.preventDefault();
