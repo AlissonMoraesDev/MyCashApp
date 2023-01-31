@@ -9,6 +9,9 @@ const onDeleteItem = async (id) => {
     await fetch(`https://mp-wallet-app-api.herokuapp.com/finances/${id}`,
       {
         method: "DELETE",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
         headers: {
           email: email,
         },
@@ -19,7 +22,7 @@ const onDeleteItem = async (id) => {
   }
 }
 
-const renderFinancesList = async (data) => {
+const renderFinancesList = (data) => {
   const financesTable = document.getElementById('finances-table');
   financesTable.innerHTML = "";
 
@@ -74,6 +77,8 @@ const renderFinancesList = async (data) => {
     const dateTd = document.createElement("td")
     const dateText = document.createTextNode(new Date(item.date).toLocaleDateString('dd'));
     dateTd.appendChild(dateText);
+    dateTd.className = "date-format";
+    console.log(dateTd);
     tableRow.appendChild(dateTd);
 
     // Value table
@@ -205,7 +210,7 @@ const onLoadUserInfo = () => {
 
   // add button logout
   const logoutElement = document.createElement("a");
-  logoutElement.onclick = onLogout();
+  logoutElement.onclick = () => onLogout();
   const logoutText = document.createTextNode("Sair");
   logoutElement.appendChild(logoutText);
   navbarUserInfo.appendChild(logoutElement);
@@ -280,12 +285,12 @@ const onCreateFinanceRelease = async (target) => {
     const title = target[0].value;
     const value = Number(target[1].value);
     const date = target[2].value;
-    const category_id = Number(target[3].value);
+    const category = Number(target[3].value);
     const result = await onCallAddFinance({
       title,
       value,
       date,
-      category_id
+      category_id: category,
     });
 
     if(result.error) {
@@ -311,9 +316,9 @@ const setInitialDate = () => {
 
 window.onload = () => {
   setInitialDate();
+  onLoadUserInfo();
   onLoadFinancesData();
   onLoadCategories();
-  onLoadUserInfo();
   
   const form = document.getElementById('form-finance-release');
   form.onsubmit = (event) => {

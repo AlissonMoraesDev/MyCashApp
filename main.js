@@ -12,12 +12,19 @@ const validationUser = async (email) => {
 }
 
 const onClickLogin = async () => {
-  
+
+  const formLogin = document.getElementById('form-login')
   const email = document.getElementById('input-email').value;
-  if(email.length < 5 || !email.includes("@")) {
-    alert("E-mail inválido!");
-    return; 
+
+  formLogin.onsubmit = (event) => {
+    event.preventDefault();
+    if(email.length < 5 || !email.includes("@")) {
+      alert("E-mail inválido!");
+      document.getElementById('input-email').focus();
+      return; 
+    }
   }
+  
   
   const result = await validationUser(email);
 

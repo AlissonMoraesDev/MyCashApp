@@ -35,7 +35,7 @@ const onRegister = async () => {
     return;
   }
 
-  if(email.length <= 5 && !email.includes("@")) {
+  if(email.length <= 5 || !email.includes("@")) {
     alert("Formato de e-mail inválido!");
     document.getElementById('input-email').focus();
     return;
@@ -50,8 +50,8 @@ const onRegister = async () => {
 
   alert("Cadastro efetuado com sucesso!");
 
-  localStorage.setItem("@MyCashApp:userEmail", response.email);
   localStorage.setItem("@MyCashApp:userName", response.name);
+  localStorage.setItem("@MyCashApp:userEmail", response.email);
   localStorage.setItem("@MyCashApp:userId", response.id);
 
   window.open("../home/index.html", "_self");
