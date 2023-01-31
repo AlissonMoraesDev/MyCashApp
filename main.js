@@ -19,7 +19,7 @@ const onClickLogin = async () => {
   formLogin.onsubmit = (event) => {
     event.preventDefault();
     if(email.length < 5 || !email.includes("@")) {
-      alert("E-mail inválido!");
+      alert("Formato de e-mail inválido!");
       document.getElementById('input-email').focus();
       return; 
     }
@@ -29,7 +29,7 @@ const onClickLogin = async () => {
   const result = await validationUser(email);
 
   if(result.error) {
-    alert("Falha ao validar e-mail");
+    alert("Não foi possível se conectar ao servidor");
     return;
   }
   
